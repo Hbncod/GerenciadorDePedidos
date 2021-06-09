@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HRXH1w7OvEvMQ4tFjcRNPn0uvJeY+P1n5SmtSkoAsd9OHWKsfPnXesjMGxMwECzpLLBWHHvLq3PMVzbljsdo8w==",
+  "dgSpecHash": "vkzc577c1+IMZNl1gdsR8GsceVJYejJf2+zh207ay5SEfNk+g4iumvh0fyDnSIxZ8w51wQMAvIs8E2rdYRxxSA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hbnco\\Desktop\\trindade-work\\GerenciadorDePedidosTests\\GerenciadorDePedidosTests.csproj",
+  "projectFilePath": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidosTests\\GerenciadorDePedidosTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hbnco\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
     "C:\\Users\\hbnco\\.nuget\\packages\\microsoft.codecoverage\\16.7.1\\microsoft.codecoverage.16.7.1.nupkg.sha512",

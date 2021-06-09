@@ -5643,11 +5643,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hbnco\\Desktop\\trindade-work\\GerenciadorDePedidosTests\\GerenciadorDePedidosTests.csproj",
+      "projectUniqueName": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidosTests\\GerenciadorDePedidosTests.csproj",
       "projectName": "GerenciadorDePedidosTests",
-      "projectPath": "C:\\Users\\hbnco\\Desktop\\trindade-work\\GerenciadorDePedidosTests\\GerenciadorDePedidosTests.csproj",
+      "projectPath": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidosTests\\GerenciadorDePedidosTests.csproj",
       "packagesPath": "C:\\Users\\hbnco\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hbnco\\Desktop\\trindade-work\\GerenciadorDePedidosTests\\obj\\",
+      "outputPath": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidosTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hbnco\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5664,8 +5664,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\hbnco\\Desktop\\trindade-work\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj": {
-              "projectPath": "C:\\Users\\hbnco\\Desktop\\trindade-work\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj"
+            "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj": {
+              "projectPath": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj"
             }
           }
         }
