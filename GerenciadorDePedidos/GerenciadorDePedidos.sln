@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31229.75
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GerenciadorDePedidos", "GerenciadorDePedidos.csproj", "{F6E2B6CB-E039-4D37-9FDF-89E367C1AE99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GerenciadorDePedidosTests", "..\GerenciadorDePedidosTests\GerenciadorDePedidosTests.csproj", "{7AB7776C-626C-4972-B054-2DBCFE3E0E54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6E2B6CB-E039-4D37-9FDF-89E367C1AE99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6E2B6CB-E039-4D37-9FDF-89E367C1AE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6E2B6CB-E039-4D37-9FDF-89E367C1AE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6E2B6CB-E039-4D37-9FDF-89E367C1AE99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AB7776C-626C-4972-B054-2DBCFE3E0E54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AB7776C-626C-4972-B054-2DBCFE3E0E54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AB7776C-626C-4972-B054-2DBCFE3E0E54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AB7776C-626C-4972-B054-2DBCFE3E0E54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B6315656-9972-44BA-B085-EC8BFB76F96F}
+	EndGlobalSection
+EndGlobal
