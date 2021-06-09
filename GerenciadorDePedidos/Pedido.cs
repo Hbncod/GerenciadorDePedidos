@@ -11,9 +11,9 @@ namespace GerenciadorDePedidos
     public class Pedido
     {
         private static int contador = 0;
-
-        public int Id { get; private set; } = contador++;
-        public DateTime DataPedido { get; private set; } = DateTime.Now;
+        public const string ItemNaoEstaNaListaMensagem = "Não é possível remover este item, pois ele não existe na lista de itens do pedido";
+        public int Id { get; } = contador++;
+        public DateTime DataPedido { get; } = DateTime.Now;
         public List<ItemPedido> ItensPedido { get; private set; } = new List<ItemPedido>();
         public decimal Total => ItensPedido.Sum(item => item.Total);
 
@@ -56,7 +56,7 @@ namespace GerenciadorDePedidos
         {
             if(!ItemEstaNaLista(item))
             {
-                throw new Exception("Não é possível remover este item, pois ele não existe na lista de itens do pedido");
+                throw new Exception(ItemNaoEstaNaListaMensagem);
             }
             ItensPedido.Remove(item);
             //AtualizarTotal();
