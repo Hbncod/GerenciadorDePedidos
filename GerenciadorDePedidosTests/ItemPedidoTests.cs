@@ -7,43 +7,44 @@ namespace GerenciadorDePedidosTests
     public class ItemPedidoTests
     {
         [Theory]
-        [InlineData(5, 9.99, 49.95)]
-        [InlineData(2, 9.99, 19.98)]
-        public void QuandoCriarUmItemDePedidoDeveCalcularValorTotalCorretamente(int quantidade, decimal valorUnitario, decimal valorEsperado)
+        [InlineData(5, 9.99)]
+        [InlineData(2, 20.99)]
+        public void QuandoCriarUmItemDePedidoDeveCalcularValorTotalCorretamente(int quantidade, decimal valorUnitario)
         {
-            //Arranje
-            //Act
+            // Arrange
+            var valorEsperado = quantidade * valorUnitario; 
 
+            // Act
             var item = new ItemPedido(quantidade, valorUnitario);
 
-            //Assert
+            // Assert
             Assert.Equal(valorEsperado, item.Total);
         }
 
-        [Fact]
-        public void QuandoAtualizarQuantidadeDeUmItemDeveCalcularNovoValorTotal()
+        [Theory]
+        [InlineData(9.99, 5, 10)]
+        public void QuandoAtualizarQuantidadeDeUmItemDeveCalcularNovoValorTotal(decimal precoUnitario, int quantidade, int novaQuantidade)
         {
             // Arrange:
-            var precoUnitario = 9.99m;
-            var item = new ItemPedido(5, precoUnitario);           
-            var novaQuantidade = 10;
-            var total = precoUnitario * novaQuantidade;
+            var item = new ItemPedido(quantidade, precoUnitario);           
+            var totalEsperado = precoUnitario * novaQuantidade;
 
             // Act:
-
             item.AtualizarQuantidade(novaQuantidade);
 
+            // Assert
             Assert.Equal(novaQuantidade, item.Quantidade);
-            Assert.Equal(total, item.Total);
+            Assert.Equal(totalEsperado, item.Total);
         }
 
-        [Fact]
-        public void QuandoAtualizarQuantidadeExcendoOLimiteDeveRetornarUmaExcecao()
+        [Theory]
+        [InlineData(9.99, 5)]
+        public void QuandoAtualizarQuantidadeExcendoOLimiteDeveRetornarUmaExcecao(decimal precoUnitario, int quantidade)
         {
-            var item = new ItemPedido(4, 10m);
+            // Arrange
+            var item = new ItemPedido(quantidade, precoUnitario);
 
             // Act
-
             var exception = Assert.Throws<Exception>(() => item.AtualizarQuantidade(100));
 
             // Assert
@@ -53,13 +54,13 @@ namespace GerenciadorDePedidosTests
             Assert.Equal(ItemPedido.QuantidadeExcedidaMensagem, exception.Message);   
         }
 
-        [Fact]
-        public void QuandoCriarItemComQuantidadeExcendoOLimiteDeveRetornarUmaExcecao()
+        [Theory]
+        [InlineData(100)]
+        public void QuandoCriarItemComQuantidadeExcendoOLimiteDeveRetornarUmaExcecao(int quantidade)
         {
-            var exception = Assert.Throws<Exception>(() => new ItemPedido(100, 10m));
+            var exception = Assert.Throws<Exception>(() => new ItemPedido(quantidade, 10m));
 
             // Assert
-
             Assert.NotNull(exception);
             Assert.IsType<Exception>(exception);
             Assert.Equal(ItemPedido.QuantidadeExcedidaMensagem, exception.Message);
