@@ -16,6 +16,7 @@ namespace GerenciadorDePedidos
         public DateTime DataPedido { get; } = DateTime.Now;
         public List<ItemPedido> ItensPedido { get; private set; } = new List<ItemPedido>();
         public decimal Total => ItensPedido.Sum(item => item.Total);
+        public PedidoStatusEnum PedidoStatus { get; private set; } = PedidoStatusEnum.Novo;
 
         //public double Total
         //{
@@ -32,26 +33,10 @@ namespace GerenciadorDePedidos
         //    }
         //}
 
-        //public Pedido()
-        //{
-        //    //Id = contador++;
-        //    //DataPedido = DateTime.Now;
-        //    //ItensPedido = new List<Item>();
-        //}
-
         public void AdicionarItem(ItemPedido item)
         {
             ItensPedido.Add(item);
-            //AtualizarTotal();
         }
-        //private void AtualizarTotal()
-        //{
-        //    Total = 0;
-        //    foreach (var item in ItensPedido)
-        //    {
-        //        Total += item.Total;
-        //    }
-        //}
         public void RemoverItem(ItemPedido item)
         {
             if(!ItemEstaNaLista(item))
@@ -59,13 +44,16 @@ namespace GerenciadorDePedidos
                 throw new Exception(ItemNaoEstaNaListaMensagem);
             }
             ItensPedido.Remove(item);
-            //AtualizarTotal();
         }
         private bool ItemEstaNaLista(ItemPedido item)
         {
             return null != ItensPedido.
                 DefaultIfEmpty()
                 .FirstOrDefault(i => i == item);
+        }
+        public void Cancelar()
+        {
+            PedidoStatus = PedidoStatusEnum.Cancelado;
         }
     }
 }
