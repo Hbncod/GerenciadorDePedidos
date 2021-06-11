@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GerenciadorDePedidos
 {
-    public enum PedidoStatusEnum
+    public enum PedidoStatus
     {
         Novo,
         Cancelado,

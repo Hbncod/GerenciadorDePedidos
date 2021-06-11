@@ -6,17 +6,15 @@ namespace GerenciadorDePedidos
     {
         public const string QuantidadeExcedidaMensagem = "A quantidade não pode ser maior que o permitido";
 
-        private static int contador = 0;
-
         private const int QTD_MAXIMA_PERMITIDA = 99;
-
+        
         private int _quantidade;
 
-        public int Id { get; private set; }
+        public int Id { get; }
         public int Quantidade
         {
             get => _quantidade;
-            set
+            private set
             {
                 if (value > QTD_MAXIMA_PERMITIDA)
                     throw new Exception(QuantidadeExcedidaMensagem);
@@ -28,9 +26,21 @@ namespace GerenciadorDePedidos
 
         public decimal Total => Quantidade * ValorUnitario;
 
-        public ItemPedido(int quantidade, decimal valorUnitario)
+        // get => _something; set { ... }
+
+        //public decimal Total { get; set; }
+
+        //public decimal Total
+        //{
+        //    get
+        //    {
+        //        return Quantidade * ValorUnitario;
+        //    }
+        //}
+
+        public ItemPedido(int id, int quantidade, decimal valorUnitario)
         {
-            Id = contador++;
+            Id = id;
             Quantidade = quantidade;
             ValorUnitario = valorUnitario;
             //Total = quantidade * valorUnitario;

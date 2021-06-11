@@ -15,7 +15,7 @@ namespace GerenciadorDePedidosTests
             var valorEsperado = quantidade * valorUnitario; 
 
             // Act
-            var item = new ItemPedido(quantidade, valorUnitario);
+            var item = new ItemPedido(1, quantidade, valorUnitario);
 
             // Assert
             Assert.Equal(valorEsperado, item.Total);
@@ -25,11 +25,11 @@ namespace GerenciadorDePedidosTests
         [InlineData(9.99, 5, 10)]
         public void QuandoAtualizarQuantidadeDeUmItemDeveCalcularNovoValorTotal(decimal precoUnitario, int quantidade, int novaQuantidade)
         {
-            // Arrange:
-            var item = new ItemPedido(quantidade, precoUnitario);           
+            // Arrange
+            var item = new ItemPedido(1, quantidade, precoUnitario);           
             var totalEsperado = precoUnitario * novaQuantidade;
 
-            // Act:
+            // Act
             item.AtualizarQuantidade(novaQuantidade);
 
             // Assert
@@ -42,23 +42,22 @@ namespace GerenciadorDePedidosTests
         public void QuandoAtualizarQuantidadeExcendoOLimiteDeveRetornarUmaExcecao(decimal precoUnitario, int quantidade)
         {
             // Arrange
-            var item = new ItemPedido(quantidade, precoUnitario);
+            var item = new ItemPedido(1, quantidade, precoUnitario);
 
             // Act
             var exception = Assert.Throws<Exception>(() => item.AtualizarQuantidade(100));
 
             // Assert
-
             Assert.NotNull(exception);
             Assert.IsType<Exception>(exception);
             Assert.Equal(ItemPedido.QuantidadeExcedidaMensagem, exception.Message);   
         }
-
         [Theory]
         [InlineData(100)]
         public void QuandoCriarItemComQuantidadeExcendoOLimiteDeveRetornarUmaExcecao(int quantidade)
         {
-            var exception = Assert.Throws<Exception>(() => new ItemPedido(quantidade, 10m));
+            //Act
+            var exception = Assert.Throws<Exception>(() => new ItemPedido(1, quantidade, 10m));
 
             // Assert
             Assert.NotNull(exception);

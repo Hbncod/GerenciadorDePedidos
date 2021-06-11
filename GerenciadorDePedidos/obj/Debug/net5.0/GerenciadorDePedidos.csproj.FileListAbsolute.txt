@@ -14,7 +14,6 @@ C:\Users\hbnco\Desktop\GerenciadorDePedidos\GerenciadorDePedidos\bin\Debug\net5.
 C:\Users\hbnco\Desktop\GerenciadorDePedidos\GerenciadorDePedidos\bin\Debug\net5.0\GerenciadorDePedidos.dll
 C:\Users\hbnco\Desktop\GerenciadorDePedidos\GerenciadorDePedidos\bin\Debug\net5.0\ref\GerenciadorDePedidos.dll
 C:\Users\hbnco\Desktop\GerenciadorDePedidos\GerenciadorDePedidos\bin\Debug\net5.0\GerenciadorDePedidos.pdb
-C:\Users\hbnco\Desktop\GerenciadorDePedidos\GerenciadorDePedidos\obj\Debug\net5.0\GerenciadorDePedidos.csprojAssemblyReference.cache
 C:\Users\hbnco\Desktop\GerenciadorDePedidos\GerenciadorDePedidos\obj\Debug\net5.0\GerenciadorDePedidos.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\hbnco\Desktop\GerenciadorDePedidos\GerenciadorDePedidos\obj\Debug\net5.0\GerenciadorDePedidos.AssemblyInfoInputs.cache
 C:\Users\hbnco\Desktop\GerenciadorDePedidos\GerenciadorDePedidos\obj\Debug\net5.0\GerenciadorDePedidos.AssemblyInfo.cs
@@ -22,3 +21,4 @@ C:\Users\hbnco\Desktop\GerenciadorDePedidos\GerenciadorDePedidos\obj\Debug\net5.
 C:\Users\hbnco\Desktop\GerenciadorDePedidos\GerenciadorDePedidos\obj\Debug\net5.0\GerenciadorDePedidos.dll
 C:\Users\hbnco\Desktop\GerenciadorDePedidos\GerenciadorDePedidos\obj\Debug\net5.0\ref\GerenciadorDePedidos.dll
 C:\Users\hbnco\Desktop\GerenciadorDePedidos\GerenciadorDePedidos\obj\Debug\net5.0\GerenciadorDePedidos.pdb
+C:\Users\hbnco\Desktop\GerenciadorDePedidos\GerenciadorDePedidos\obj\Debug\net5.0\GerenciadorDePedidos.csprojAssemblyReference.cache
