@@ -5,8 +5,10 @@ namespace GerenciadorDePedidos
     public class ItemPedido
     {
         public const string QuantidadeExcedidaMensagem = "A quantidade não pode ser maior que o permitido";
+        public const string QuantidadeMinimaMensagem = "A quantidade não pode ser menor ou igual a zero";
 
         private const int QTD_MAXIMA_PERMITIDA = 99;
+        private const int QTD_MINIMA_PERMITIDA = 1;
         
         private int _quantidade;
 
@@ -18,7 +20,8 @@ namespace GerenciadorDePedidos
             {
                 if (value > QTD_MAXIMA_PERMITIDA)
                     throw new Exception(QuantidadeExcedidaMensagem);
-
+                if(value < QTD_MINIMA_PERMITIDA)
+                    throw new Exception(QuantidadeMinimaMensagem);
                 _quantidade = value;
             }
         }

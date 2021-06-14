@@ -22,6 +22,30 @@ namespace GerenciadorDePedidosTests
             item.Should().NotBeNull();
             item.Total.Should().Equals(valorEsperado);
         }
+        [Theory]
+        [InlineData(-1)]
+        [InlineData(0)]
+        public void QuandoCriarUmpedidoComQuantidadeInferiorAMinimaDeveLancarUmaExcecao(int quantidadeInferiorAMinima)
+        {
+            //Arrange /Act
+            Action action = () => new ItemPedido(1, quantidadeInferiorAMinima, 1.99m);
+
+            //Assert
+            action.Should().ThrowExactly<Exception>("Quando criar um pedido com quantidade inferior a mínima deve ser lançada uma exceção").WithMessage(ItemPedido.QuantidadeMinimaMensagem);
+        }
+        [Theory]
+        [InlineData(-1)]
+        [InlineData(-20)]
+        public void QuandoAtualizarAQuantidadeDeUmItemPorUmValorInferiorAoMinimoDeveLancarUmaExcecao(int quantidadeNegativa)
+        {
+            // Arrange
+            var item = new ItemPedido(1, 1, 5.99m);
+            //Act
+            Action action = () => item.AtualizarQuantidade(quantidadeNegativa);
+
+            //Assert
+            action.Should().ThrowExactly<Exception>("Quando atualizar a quantidade de um item para negativa deve ser lançada uma exceção").WithMessage(ItemPedido.QuantidadeMinimaMensagem);
+        }
 
         [Theory]
         [InlineData(9.99, 5, 10)]
