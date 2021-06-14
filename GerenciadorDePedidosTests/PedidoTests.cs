@@ -1,4 +1,5 @@
-﻿using GerenciadorDePedidos;
+﻿using FluentAssertions;
+using GerenciadorDePedidos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,8 @@ namespace GerenciadorDePedidosTests
             pedido.RemoverItem(item);
 
             //Assert
-            Assert.Equal(2, pedido.ItensPedido.Count);
+            pedido.ItensPedido.Should().HaveCount(2, "Quando Remover Itens da lista a quantidade deve ser alterada");
+            //Assert.Equal(2, pedido.ItensPedido.Count);
         }
         [Fact]
         public void QuandoTentarCancelarUmPedidoJaCanceladoDeveLancarUmaExcecao()
@@ -34,11 +36,15 @@ namespace GerenciadorDePedidosTests
             Pedido pedido = new Pedido(PedidoStatus.Cancelado);
 
             //Act
-            var exceptionObtida = Assert.Throws<Exception>(() => pedido.Cancelar());
+            Action action = () => pedido.Cancelar();
 
             //Assert
-            Assert.IsType<Exception>(exceptionObtida);
-            Assert.Equal(Pedido.PedidoJaCanceladoMensagem, exceptionObtida.Message);
+            action.Should().ThrowExactly<Exception>("Quando tentar cancelar um pedido já cancelado, deve lançar uma exceção").WithMessage(Pedido.PedidoJaCanceladoMensagem);
+            //var exceptionObtida = Assert.Throws<Exception>(() => pedido.Cancelar());
+
+            //Assert
+            //Assert.IsType<Exception>(exceptionObtida);
+            //Assert.Equal(Pedido.PedidoJaCanceladoMensagem, exceptionObtida.Message);
         }
         [Fact]
         public void QuandoTentarRemoverUmItemQueNaoExisteNaListaDeItensDoPedidoDeveLancarUmaExcecao()
@@ -49,11 +55,15 @@ namespace GerenciadorDePedidosTests
 
 
             //Act
-            var exceptionObtida = Assert.Throws<Exception>(() => pedido.RemoverItem(item));
+            Action action = () => pedido.RemoverItem(item);
 
             //Assert
-            Assert.IsType<Exception>(exceptionObtida);
-            Assert.Equal(Pedido.ItemNaoEstaNaListaMensagem, exceptionObtida.Message);
+            action.Should().ThrowExactly<Exception>("Quando tentar remover um item que não existe na lista de itens, deve lançar uma exceção").WithMessage(Pedido.ItemNaoEstaNaListaMensagem);
+            //var exceptionObtida = Assert.Throws<Exception>(() => pedido.RemoverItem(item));
+
+            ////Assert
+            //Assert.IsType<Exception>(exceptionObtida);
+            //Assert.Equal(Pedido.ItemNaoEstaNaListaMensagem, exceptionObtida.Message);
         }
         [Theory]
         [InlineData(5, 9.99)]
@@ -67,9 +77,10 @@ namespace GerenciadorDePedidosTests
             pedido.AdicionarItem(item);
 
             //Assert
-
-            var itemAdicionado = pedido.ItensPedido.FirstOrDefault(x => x.Id == item.Id);
-            Assert.Equal(item, itemAdicionado);
+            pedido.ItensPedido.Should().NotBeNull().And.HaveCount(1, "Quando adicionar itens a um pedido, o número de itens deve aumentar");
+            pedido.ItensPedido.FirstOrDefault(x => x.Id == item.Id).Should().NotBeNull().And.BeEquivalentTo<ItemPedido>(item, "O item encontrado deve ser o mesmo que foi adiocionado");
+            //var itemAdicionado = pedido.ItensPedido.FirstOrDefault(x => x.Id == item.Id);
+            //Assert.Equal(item, itemAdicionado);
         }
 
         [Fact]
@@ -86,7 +97,8 @@ namespace GerenciadorDePedidosTests
             pedido.AdicionarItem(item2);
 
             //Assert
-            Assert.Equal(75, pedido.Total);
+            pedido.Total.Should().Equals(75);
+            //Assert.Equal(75, pedido.Total);
         }
         [Fact]
         public void QuandoCriarUmPedidoSeuStatusDeveEstarComoNovo()
@@ -94,30 +106,44 @@ namespace GerenciadorDePedidosTests
             //Arrange Act
             Pedido pedido = new Pedido();
             //Assert
-            Assert.Equal(PedidoStatus.Novo, pedido.Status);
+            pedido.Status.Should().Equals(PedidoStatus.Novo);
+            //Assert.Equal(PedidoStatus.Novo, pedido.Status);
         }
         [Fact]
         public void QuandoAdicionarUmItemAUmPedidoComStatusCanceladoDeveLancarUmaExcecao()
         {
+            //Arrange
             var pedido = new Pedido(PedidoStatus.Cancelado);
             var item = new ItemPedido(1, 2, 2);
 
-            var excecao = Assert.Throws<Exception>(() => pedido.AdicionarItem(item));
+            //Act
+            Action action = () => pedido.AdicionarItem(item);
 
-            Assert.IsType<Exception>(excecao);
-            Assert.Equal(Pedido.ItemNaoPodeSerAdicionadoSeStatusEstaCanceladoOuPagoMensagem, excecao.Message);
+            //Assert
+            action.Should().ThrowExactly<Exception>().WithMessage(Pedido.ItemNaoPodeSerAdicionadoSeStatusEstaCanceladoOuPagoMensagem);
+            //var excecao = Assert.Throws<Exception>(() => pedido.AdicionarItem(item));
+
+            //Assert.IsType<Exception>(excecao);
+            //Assert.Equal(Pedido.ItemNaoPodeSerAdicionadoSeStatusEstaCanceladoOuPagoMensagem, excecao.Message);
                         
         }
         [Fact]
         public void QuandoAdicionarUmItemAUmPedidoComStatusPagoDeveLancarUmaExcecao()
         {
+            //Arrange
             var pedido = new Pedido(PedidoStatus.Pago);
             var item = new ItemPedido(1, 2, 2);
 
-            var excecao = Assert.Throws<Exception>(() => pedido.AdicionarItem(item));
+            //Act
+            Action action = () => pedido.AdicionarItem(item);
 
-            Assert.IsType<Exception>(excecao);
-            Assert.Equal(Pedido.ItemNaoPodeSerAdicionadoSeStatusEstaCanceladoOuPagoMensagem, excecao.Message);
+            //Assert
+            action.Should().ThrowExactly<Exception>().WithMessage(Pedido.ItemNaoPodeSerAdicionadoSeStatusEstaCanceladoOuPagoMensagem);
+
+            //var excecao = Assert.Throws<Exception>(() => pedido.AdicionarItem(item));
+
+            //Assert.IsType<Exception>(excecao);
+            //Assert.Equal(Pedido.ItemNaoPodeSerAdicionadoSeStatusEstaCanceladoOuPagoMensagem, excecao.Message);
         }
         [Fact]
         public void QuandoCancelarUmPedidoSeuStatusDeveSerAlteradoParaCancelado()
@@ -127,7 +153,8 @@ namespace GerenciadorDePedidosTests
             //Act
             pedido.Cancelar();
             //Assert
-            Assert.Equal(PedidoStatus.Cancelado, pedido.Status);
+            pedido.Status.Should().Equals(PedidoStatus.Cancelado);
+            //Assert.Equal(PedidoStatus.Cancelado, pedido.Status);
         }
         [Fact]
         public void QuandoItensOPedidoStatusDeveSerAlteradoParaEmAndamento()
@@ -140,7 +167,8 @@ namespace GerenciadorDePedidosTests
             pedido.AdicionarItem(item);
 
             //Assert
-            Assert.Equal(PedidoStatus.EmAndamento, pedido.Status);
+            pedido.Status.Should().Equals(PedidoStatus.EmAndamento);
+            //Assert.Equal(PedidoStatus.EmAndamento, pedido.Status);
         }
         [Fact]
         public void QuandoRealizarPagamentoOPedidoStatusDeveSerAlteradoParaPago()
@@ -154,7 +182,8 @@ namespace GerenciadorDePedidosTests
             pedido.Pagar();
 
             //Assert
-            Assert.Equal(PedidoStatus.Pago, pedido.Status);
+            pedido.Status.Should().Equals(PedidoStatus.Pago);
+            //Assert.Equal(PedidoStatus.Pago, pedido.Status);
         }
         [Fact]
         public void QuandoRealizarPagamentoDeveSerGeradoUmaFatura()
@@ -168,7 +197,8 @@ namespace GerenciadorDePedidosTests
             pedido.Pagar();
 
             //Assert
-            Assert.NotNull(pedido.Fatura);
+            pedido.Fatura.Should().NotBeNull().And.BeOfType<FaturaPedido>("Quando realizar pagamento deve ser gerada uma fatura");
+            //Assert.NotNull(pedido.Fatura);
         }
 
         //public static IEnumerable<object[]> ItensPedido()

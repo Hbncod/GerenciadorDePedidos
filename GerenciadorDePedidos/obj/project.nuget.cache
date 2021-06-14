@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "IWrbcG7ehLvFkraAk3POSf/LbOgELG+3sAnhMXMHBYCSKmWnHFF6vvJpOXIhqgBZcwyKk5q8DW+VLm6PHDfj2w==",
+  "dgSpecHash": "2Axow72zaSNhiIK82FDst5fJU67wShbT7v+ExOsTCC/IR6mUlV8GoAl3gO3T7VpsTA3b8dmSVgt3sXjgF7ZWzA==",
   "success": true,
   "projectFilePath": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\hbnco\\.nuget\\packages\\fluentassertions\\5.10.3\\fluentassertions.5.10.3.nupkg.sha512",
+    "C:\\Users\\hbnco\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.0\\system.configuration.configurationmanager.4.4.0.nupkg.sha512",
+    "C:\\Users\\hbnco\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.4.0\\system.security.cryptography.protecteddata.4.4.0.nupkg.sha512"
+  ],
   "logs": []
 }

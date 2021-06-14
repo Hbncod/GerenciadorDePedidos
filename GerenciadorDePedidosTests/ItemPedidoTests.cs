@@ -1,6 +1,7 @@
 ﻿using GerenciadorDePedidos;
 using Xunit;
 using System;
+using FluentAssertions;
 
 namespace GerenciadorDePedidosTests
 {
@@ -18,7 +19,9 @@ namespace GerenciadorDePedidosTests
             var item = new ItemPedido(1, quantidade, valorUnitario);
 
             // Assert
-            Assert.Equal(valorEsperado, item.Total);
+            item.Should().NotBeNull();
+            item.Total.Should().Equals(valorEsperado);
+            //Assert.Equal(valorEsperado, item.Total);
         }
 
         [Theory]
@@ -33,8 +36,10 @@ namespace GerenciadorDePedidosTests
             item.AtualizarQuantidade(novaQuantidade);
 
             // Assert
-            Assert.Equal(novaQuantidade, item.Quantidade);
-            Assert.Equal(totalEsperado, item.Total);
+            item.Quantidade.Should().BePositive().Equals(novaQuantidade);
+            item.Total.Should().BePositive("Não pode ter um valor negativo").Equals(totalEsperado);
+            //Assert.Equal(novaQuantidade, item.Quantidade);
+            //Assert.Equal(totalEsperado, item.Total);
         }
 
         [Theory]
@@ -43,26 +48,33 @@ namespace GerenciadorDePedidosTests
         {
             // Arrange
             var item = new ItemPedido(1, quantidade, precoUnitario);
+            var novaQuantidade = 100;
 
             // Act
-            var exception = Assert.Throws<Exception>(() => item.AtualizarQuantidade(100));
+            Action action = () => item.AtualizarQuantidade(novaQuantidade);
+            action.Should().ThrowExactly<Exception>().WithMessage(ItemPedido.QuantidadeExcedidaMensagem);
+            //var exception = Assert.Throws<Exception>(() => item.AtualizarQuantidade(100));
 
             // Assert
-            Assert.NotNull(exception);
-            Assert.IsType<Exception>(exception);
-            Assert.Equal(ItemPedido.QuantidadeExcedidaMensagem, exception.Message);   
+            //Assert.IsType<Exception>(exception);
+            //Assert.Equal(ItemPedido.QuantidadeExcedidaMensagem, exception.Message);   
         }
         [Theory]
         [InlineData(100)]
         public void QuandoCriarItemComQuantidadeExcendoOLimiteDeveRetornarUmaExcecao(int quantidade)
         {
             //Act
-            var exception = Assert.Throws<Exception>(() => new ItemPedido(1, quantidade, 10m));
+            //var exception = Assert.Throws<Exception>(() => new ItemPedido(1, quantidade, 10m));
 
+            //Act
+            Action action = () => new ItemPedido(1, quantidade, 10m);
+
+            //Assert
+            action.Should().NotBeNull().And.ThrowExactly<Exception>("Quando criar item com quantidade excedendo o limite deve lançar uma exceção").WithMessage(ItemPedido.QuantidadeExcedidaMensagem);
             // Assert
-            Assert.NotNull(exception);
-            Assert.IsType<Exception>(exception);
-            Assert.Equal(ItemPedido.QuantidadeExcedidaMensagem, exception.Message);
+            //Assert.NotNull(exception);
+            //Assert.IsType<Exception>(exception);
+            //Assert.Equal(ItemPedido.QuantidadeExcedidaMensagem, exception.Message);
         }
     }
 }
