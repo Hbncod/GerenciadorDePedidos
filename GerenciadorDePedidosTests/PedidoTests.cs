@@ -56,17 +56,19 @@ namespace GerenciadorDePedidosTests
         }
         [Theory]
         [InlineData(5, 9.99)]
+        [InlineData(2, 1.99)]
         public void QuandoAdicionarItensOsMesmosDevemEstarNaListaDePedido(int quantidade, decimal valorUnitario)
         {
             //Arranje
             ItemPedido item = new ItemPedido(1, quantidade, valorUnitario);
-            Pedido pedido = new Pedido();
+            var pedido = new Pedido();
+            var qntAntigaDeItens = pedido.ItensPedido.Count;
 
             //Act
             pedido.AdicionarItem(item);
 
             //Assert
-            pedido.ItensPedido.Should().NotBeNull().And.HaveCount(1, "Quando adicionar itens a um pedido, o número de itens deve aumentar");
+            pedido.ItensPedido.Should().NotBeNull().And.HaveCount(c => c > qntAntigaDeItens, "Quando adicionar itens a um pedido, o número de itens deve aumentar");
             pedido.ItensPedido.FirstOrDefault(x => x.Id == item.Id).Should().NotBeNull().And.BeEquivalentTo<ItemPedido>(item, "O item encontrado deve ser o mesmo que foi adiocionado");
         }
 
@@ -77,6 +79,7 @@ namespace GerenciadorDePedidosTests
             Pedido pedido = new Pedido();
             ItemPedido item = new ItemPedido(1, 5, 5);
             ItemPedido item2 = new ItemPedido(1, 5, 10);
+            var totalEsperado = item.Total + item2.Total;
 
 
             //Act
@@ -84,7 +87,7 @@ namespace GerenciadorDePedidosTests
             pedido.AdicionarItem(item2);
 
             //Assert
-            pedido.Total.Should().Equals(75);
+            pedido.Total.Should().Equals(totalEsperado);
         }
         [Fact]
         public void QuandoCriarUmPedidoSeuStatusDeveEstarComoNovo()
@@ -92,7 +95,7 @@ namespace GerenciadorDePedidosTests
             //Arrange Act
             Pedido pedido = new Pedido();
             //Assert
-            pedido.Status.Should().Equals(PedidoStatus.Novo);
+            pedido.Status.Should().HaveFlag(PedidoStatus.Novo);
         }
         [Theory]
         [InlineData(PedidoStatus.Cancelado)]
@@ -117,7 +120,7 @@ namespace GerenciadorDePedidosTests
             //Act
             pedido.Cancelar();
             //Assert
-            pedido.Status.Should().Equals(PedidoStatus.Cancelado);
+            pedido.Status.Should().HaveFlag(PedidoStatus.Cancelado);
         }
         [Fact]
         public void QuandoItensOPedidoStatusDeveSerAlteradoParaEmAndamento()
@@ -130,7 +133,7 @@ namespace GerenciadorDePedidosTests
             pedido.AdicionarItem(item);
 
             //Assert
-            pedido.Status.Should().Equals(PedidoStatus.EmAndamento);
+            pedido.Status.Should().HaveFlag(PedidoStatus.EmAndamento);
         }
         [Fact]
         public void QuandoRealizarPagamentoOPedidoStatusDeveSerAlteradoParaPago()
@@ -144,7 +147,7 @@ namespace GerenciadorDePedidosTests
             pedido.Pagar();
 
             //Assert
-            pedido.Status.Should().Equals(PedidoStatus.Pago);
+            pedido.Status.Should().HaveFlag(PedidoStatus.Pago);
         }
         [Fact]
         public void QuandoRealizarPagamentoDeveSerGeradoUmaFatura()
