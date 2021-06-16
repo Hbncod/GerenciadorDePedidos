@@ -1,22 +1,21 @@
 ﻿using FluentAssertions;
 using GerenciadorDePedidos;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
 namespace GerenciadorDePedidosTests
 {
-    public class PedidoTests
+    public class PedidoTests : Tools
     {
         [Fact]
         public void QuandoRemoverItensDaListaDoPedidoAQuantidadeDeItensDeveSerAlterada()
         {
             //Arranje
             Pedido pedido = new Pedido();
-            ItemPedido item = new ItemPedido(1, 5, 5);
-            ItemPedido item2 = new ItemPedido(1, 5, 10);
-            ItemPedido item3 = new ItemPedido(1, 2, 3);
+            var item = CriarItemPedido(1.50m);
+            var item2 = CriarItemPedido(1.50m);
+            var item3 = CriarItemPedido(1.50m);
 
             pedido.AdicionarItem(item);
             pedido.AdicionarItem(item2);
@@ -44,8 +43,8 @@ namespace GerenciadorDePedidosTests
         public void QuandoTentarRemoverUmItemQueNaoExisteNaListaDeItensDoPedidoDeveLancarUmaExcecao()
         {
             //Arranje
-            Pedido pedido = new Pedido();
-            var item = new ItemPedido(1, 2, 10);
+            var pedido = new Pedido();
+            var item = CriarItemPedido(1.30m);
 
 
             //Act
@@ -60,7 +59,7 @@ namespace GerenciadorDePedidosTests
         public void QuandoAdicionarItensOsMesmosDevemEstarNaListaDePedido(int quantidade, decimal valorUnitario)
         {
             //Arranje
-            ItemPedido item = new ItemPedido(1, quantidade, valorUnitario);
+            var item = CriarItemPedido(valorUnitario, quantidade);
             var pedido = new Pedido();
             var qntAntigaDeItens = pedido.ItensPedido.Count;
 
@@ -76,9 +75,9 @@ namespace GerenciadorDePedidosTests
         public void QuandoAdicionarUmOuMaisItensDeveAlterarOValorTotalDoPedido()
         {
             //Arranje
-            Pedido pedido = new Pedido();
-            ItemPedido item = new ItemPedido(1, 5, 5);
-            ItemPedido item2 = new ItemPedido(1, 5, 10);
+            var pedido = new Pedido();
+            var item = CriarItemPedido(10m);
+            var item2 = CriarItemPedido(15.30m);
             var totalEsperado = item.Total + item2.Total;
 
 
@@ -104,7 +103,7 @@ namespace GerenciadorDePedidosTests
         {
             //Arrange
             var pedido = new Pedido(status);
-            var item = new ItemPedido(1, 2, 2);
+            var item = CriarItemPedido(10);
 
             //Act
             Action action = () => pedido.AdicionarItem(item);
@@ -123,11 +122,11 @@ namespace GerenciadorDePedidosTests
             pedido.Status.Should().HaveFlag(PedidoStatus.Cancelado);
         }
         [Fact]
-        public void QuandoItensOPedidoStatusDeveSerAlteradoParaEmAndamento()
+        public void QuandoAdicionarItensaOPedidoOPedidoStatusDeveSerAlteradoParaEmAndamento()
         {
             //Arrange
             Pedido pedido = new Pedido();
-            var item = new ItemPedido(1, 2, 10.50m);
+            var item = CriarItemPedido(10.20m);
 
             //Act
             pedido.AdicionarItem(item);
@@ -140,7 +139,7 @@ namespace GerenciadorDePedidosTests
         {
             //Arrange
             Pedido pedido = new Pedido();
-            var item = new ItemPedido(1, 2, 10.50m);
+            var item = CriarItemPedido(10.20m);
             pedido.AdicionarItem(item);
 
             //Act
@@ -154,7 +153,7 @@ namespace GerenciadorDePedidosTests
         {
             //Arrange
             Pedido pedido = new Pedido();
-            var item = new ItemPedido(1, 2, 10.50m);
+            var item = CriarItemPedido(10.20m);
             pedido.AdicionarItem(item);
 
             //Act
@@ -163,18 +162,5 @@ namespace GerenciadorDePedidosTests
             //Assert
             pedido.Fatura.Should().NotBeNull().And.BeOfType<FaturaPedido>("Quando realizar pagamento deve ser gerada uma fatura");
         }
-
-        //public static IEnumerable<object[]> ItensPedido()
-        //{
-        //    yield return new ItemPedido[] { new ItemPedido(5, 10), new ItemPedido(2, 20), new ItemPedido(3, 15) };
-        //    yield return new ItemPedido[] { new ItemPedido(2, 5.99m), new ItemPedido(2, 15.99m), new ItemPedido(3, 10) };
-        //}
-        //private void AdicionarItensPedidoEmPedido(Pedido pedido, ItemPedido[] itens)
-        //{
-        //    foreach (var item in itens)
-        //    {
-        //        pedido.AdicionarItem(item);
-        //    }
-        //}
     }
 }
