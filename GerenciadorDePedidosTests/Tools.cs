@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GerenciadorDePedidosTests
 {
-    public partial class Tools
+    public class Tools
     {
         protected ItemPedido CriarItemPedido(decimal valorUnitario, int quantidade = 1, int? id = null)
         {
