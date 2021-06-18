@@ -61,7 +61,7 @@ namespace GerenciadorDePedidosTests
         [InlineData(-1)]
         [InlineData(0)]
         [InlineData(100)]
-        public void QuandoCriarItemPedidoComQuantidadeInvalidaDeveLancarUmaExcecao(int quantidadeInvalida)
+        public void QuandoCriarItemPedidoComQuantidadeInvalida_Deve_LancarUmaExcecao(int quantidadeInvalida)
         {
             //Arrange /Act
             Action action = () => CriarItemPedido(11.99m, quantidadeInvalida);

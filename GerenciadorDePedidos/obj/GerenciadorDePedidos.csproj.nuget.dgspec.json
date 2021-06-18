@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj": {}
+    "E:\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj": {
+    "E:\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj",
+        "projectUniqueName": "E:\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj",
         "projectName": "GerenciadorDePedidos",
-        "projectPath": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj",
+        "projectPath": "E:\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj",
         "packagesPath": "C:\\Users\\hbnco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidos\\obj\\",
+        "outputPath": "E:\\GerenciadorDePedidos\\GerenciadorDePedidos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hbnco\\AppData\\Roaming\\NuGet\\NuGet.Config",
