@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidosTests\\GerenciadorDePedidosTests.csproj": {}
+    "E:\\GerenciadorDePedidos\\GerenciadorDePedidosTests\\GerenciadorDePedidosTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidosTests\\GerenciadorDePedidosTests.csproj": {
+    "E:\\GerenciadorDePedidos\\GerenciadorDePedidosTests\\GerenciadorDePedidosTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidosTests\\GerenciadorDePedidosTests.csproj",
+        "projectUniqueName": "E:\\GerenciadorDePedidos\\GerenciadorDePedidosTests\\GerenciadorDePedidosTests.csproj",
         "projectName": "GerenciadorDePedidosTests",
-        "projectPath": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidosTests\\GerenciadorDePedidosTests.csproj",
+        "projectPath": "E:\\GerenciadorDePedidos\\GerenciadorDePedidosTests\\GerenciadorDePedidosTests.csproj",
         "packagesPath": "C:\\Users\\hbnco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidosTests\\obj\\",
+        "outputPath": "E:\\GerenciadorDePedidos\\GerenciadorDePedidosTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hbnco\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj": {
-                "projectPath": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj"
+              "E:\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj": {
+                "projectPath": "E:\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj"
               }
             }
           }
@@ -84,14 +84,14 @@
         }
       }
     },
-    "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj": {
+    "E:\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj",
+        "projectUniqueName": "E:\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj",
         "projectName": "GerenciadorDePedidos",
-        "projectPath": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj",
+        "projectPath": "E:\\GerenciadorDePedidos\\GerenciadorDePedidos\\GerenciadorDePedidos.csproj",
         "packagesPath": "C:\\Users\\hbnco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidos\\obj\\",
+        "outputPath": "E:\\GerenciadorDePedidos\\GerenciadorDePedidos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hbnco\\AppData\\Roaming\\NuGet\\NuGet.Config",

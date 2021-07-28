@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MSVvIf0MpvWQq3h7mKlk6kYe3jUjitCluUi2a5hiaHxCzONxJDKMTHbhBH5EWds9YKTI8/aeYbprLKZKATU2ow==",
+  "dgSpecHash": "EbXfL9ok6uQkueInjIRu1d/zMXeLUNzEcKDcE0o7CKo8+npgel6U+/uP6KNjRZ1DDUxZpEzTOLQn+rXn/fFd2g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hbnco\\Desktop\\GerenciadorDePedidos\\GerenciadorDePedidosTests\\GerenciadorDePedidosTests.csproj",
+  "projectFilePath": "E:\\GerenciadorDePedidos\\GerenciadorDePedidosTests\\GerenciadorDePedidosTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hbnco\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
     "C:\\Users\\hbnco\\.nuget\\packages\\fluentassertions\\5.10.3\\fluentassertions.5.10.3.nupkg.sha512",
